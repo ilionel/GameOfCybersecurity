@@ -1,0 +1,381 @@
+{
+    "Questions_Adult": [
+        {
+            "title": "Est-ce que cet email est sûr ?",
+            "image": "./img/phishing1.png",
+            "left": "Sûr",
+            "right": "Pas sûr",
+            "up": "Pas de réponse",
+            "down": "Pas de réponse",
+            "good_answer": "right",
+            "details": "Cet email est envoyé par une adresse étrange, une institution gouvernementale n'aura jamais une adresse gmail, hotmail ou outlook."
+        },
+        {
+            "title": "Quelle est la façon la plus simple d'empêcher les cyberattaques de force brute ?",
+            "image": "./img/password1.png",
+            "left": "Détruire tous les documents contenant des informations sensibles",
+            "right": "Ajouter un verrou à tous les accès",
+            "up": "Ajouter quelques caractères uniques à tout mot de passe ou code PIN",
+            "down": "Pas de réponse",
+            "good_answer": "up",
+            "details": ""
+        },
+        {
+            "title": "Qu'est-ce qui est le plus précieux pour les entreprises qui cherchent à vous vendre quelque chose ?",
+            "image": "./img/privacy3.jpeg",
+            "left": "Votre numéro de téléphone",
+            "right": "Votre adresse email",
+            "up": "Pas de réponse",
+            "down": "Pas de réponse",
+            "good_answer": "left",
+            "details": "En effet, votre numéro de téléphone est le plus susceptible de ne pas changer au fil des ans"
+        },
+        {
+            "title": "Quelle est la meilleure façon de protéger les employés contre les escroqueries de phishing ?",
+            "image": "./img/phishing2.jpeg",
+            "left": "Des filtres d'email qui bloquent les pièces jointes suspects",
+            "right": "Une formation à la sensibilisation à la cybersécurité",
+            "up": "Des bloqueurs de fenêtres contextuelles",
+            "down": "Ne jamais ouvrir votre boîte email",
+            "good_answer": "right",
+            "details": ""        
+        },
+        {
+            "title": "Laquelle des déclarations suivantes sur les crypto-monnaies est fausse ?",
+            "image": "./img/crypto1.png",
+            "left": "La blockchain est le registre numérique qui enregistre toutes les transactions de crypto-monnaies",
+            "right": "Chaque nouveau Bitcoin miné nécessite légèrement plus d'énergie que le précédent",
+            "up": "Les crypto-monnaies sont 100 fois plus sûres que les monnaies traditionnelles",
+            "down": "Les crypto-monnaies vous assurent de la richesse",
+            "good_answer": "up",
+            "details": ""
+        },
+        {
+            "title": "Une application demande l'accès à vos contacts, microphone, SMS... ",
+            "image": "./img/mobile1.jpg",
+            "left": "Ne vous inquiétez pas, cliquez sur OK",
+            "right": "Accordez des autorisations ponctuelles pour les applications",
+            "up": "Désinstallez cette application",
+            "down": "Pas de réponse",
+            "good_answer": "right",
+            "details": "En général, les applications demandent des autorisations pour fournir des services. Cependant, il existe des applications qui demanderont des autorisations pour toutes sortes de données qui ne semblent pas nécessaires pour que l'application fonctionne. Parfois, la raison est de collecter des informations sensibles via ces autorisations et de les vendre ensuite à des spammeurs ou des escrocs. L'utilisateur doit toujours être prudent, surtout s'il télécharge des applications à partir de sources non fiables ou douteuses."
+        },
+        {
+            "title": "Un malware qui bloque votre ordinateur à moins que vous ne payiez est appelé",
+            "image": "./img/malware1.jpeg",
+            "left": "Un ransomware",
+            "right": "Un cheval de Troie",
+            "up": "Un bot",
+            "down": "Un spyware",
+            "good_answer": "left",
+            "details": "Les attaques de ransomware chiffrent les données d'un appareil et les retiennent en otage jusqu'à ce que le hacker soit payé pour les libérer. Si la rançon n'est pas payée avant la date limite, le hacker menace de supprimer les données ou de les exposer. Payer ne vous aidera peut-être pas ; souvent, les victimes ne récupè rent pas leurs données même si elles paient la somme."
+        },
+        {
+            "title": "Qu'est-ce qu'un Botnet ?",
+            "image": "./img/malware1.jpeg",
+            "left": "Phishing",
+            "right": "Attaque de POS",
+            "up": "Attaque de DoS",
+            "down": "Pas de réponse",
+            "good_answer": "up",
+            "details": "Si les demandes proviennent de plusieurs sources, il s'agit d'une attaque DDoS (Distributed-Denial-of-Service)."
+        },
+        {
+            "title": "Quel type d'attaque est conçu pour entraver le fonctionnement normal d'un site Web ?",
+            "image": "./img/network1.jpeg",
+            "left": "Phishing",
+            "right": "Attaque de POS",
+            "up": "Attaque de DoS",
+            "down": "Pas de réponse",
+            "good_answer": "up",
+            "details": "Si les demandes proviennent de plusieurs sources, il s'agit d'une attaque DDoS (Distributed-Denial-of-Service)."
+        },
+        {
+            "title": "Pour protéger vos communications sur les réseaux publics, vous devez",
+            "image": "./img/network1.jpeg",
+            "left": "Utiliser un réseau privé virtuel (VPN)",
+            "right": "Trouver le signal WiFi le plus fort près de vous",
+            "up": "Désactiver le partage de fichiers",
+            "down": "Préférer l'envoi d'email plutôt que d'utiliser un service bien connu",
+            "good_answer": "left",
+            "details": "Un VPN permet à une entreprise d'utiliser les ressources Internet, permettant aux employés de collaborer facilement à partir de différents emplacements, y compris à domicile."
+        },
+        {
+            "title": "Laquelle des déclarations suivantes est vraie concernant le RGPD ?",
+            "image": "./img/gdpr1.jpeg",
+            "left": "Il ne s'applique qu'aux entreprises situées en Europe.",
+            "right": "Le RGPD est étroitement lié à la sécurité informatique.",
+            "up": "Ne pas se conformer au RGPD ne nuit qu'à la réputation d'une entreprise",
+            "down": "Pas de réponse",
+            "good_answer": "right",
+            "details": "Un VPN permet à une entreprise d'utiliser les ressources Internet, permettant aux employés de collaborer facilement à partir de différents emplacements, y compris à domicile."
+        },
+        {
+            "title": "Quel est le mot de passe le plus approprié ?",
+            "image": "./img/password2.jpeg",
+            "left": "123456",
+            "right": "qwerty123",
+            "up": "1q2w3e",
+            "down": "MfMa6d@tbc&ich£10",
+            "good_answer": "down",
+            "details": "Lorsqu'il s'agit de mots de passe, pensez à la longueur plutôt qu'à la complexité. Plus le mot de passe est long, plus il est fort. Plus de caractères = plus de sécurité."
+        },
+        {
+            "title": "Laquelle des déclarations suivantes est la plus susceptible d'être un canular ?",
+            "image": "./img/email.jpeg",
+            "left": "Un email d'un ami que vous n'avez pas vu récemment.",
+            "right": "Un email avec une pièce jointe envoyée par un collègue en utilisant son adresse email personnelle.",
+            "up": "Un email vous demandant d'aller sur un site Web pour un scan de votre ordinateur gratuit.",
+            "down": "Un email publicitaire d'un magasin local auquel vous êtes abonné.",
+            "good_answer": "up",
+            "details": ""
+        },
+        {
+            "title": "Laquelle des options suivantes devrait être utilisée pour modifier votre mot de passe ?",
+            "image": "./img/window.jpeg",
+            "left": "Internet Explorer.",
+            "right": "Panneau de configuration.",
+            "up": "Logiciel antivirus.",
+            "down": "Pare-feu Windows.",
+            "good_answer": "left",
+            "details": ""
+        },
+        {
+            "title": "Si vous recevez cet email, quelle est votre prochaine étape ?",
+            "image": "./img/email.jpeg",
+            "left": "Ignorez l'email et supprimez-le.",
+            "right": "Suivez le lien et réinitialisez votre mot de passe.",
+ "up": "Réinitialisez votre mot de passe manuellement.",
+            "down": "Demandez à un collègue.",
+            "good_answer": "left",
+            "details": "Ceci est un email de phishing. Si vous utilisez Microsoft, un rappel de mot de passe vous avertira sur votre bureau, et non sur votre adresse email. Faites toujours preuve de prudence lorsqu'il s'agit d'emails."
+        },
+        {
+            "title": "Vous venez de quitter votre bureau pour la journée, lorsque vous tombez sur une clé USB sur le sol. Que faites-vous ?",
+            "image": "./img/usb.jpeg",
+            "left": "Prenez-la chez vous et utilisez-la.",
+            "right": "Remettez-la à la réception pour qu'elle soit traitée.",
+            "good_answer": "left",
+            "details": "Une clé USB inconnue peut causer des problèmes. Il est préférable de la remettre à la réception pour qu'elle puisse découvrir si quelqu'un l'a perdue initialement."
+        },
+        {
+            "title": "Votre ordinateur vient d'être infecté par un ransomware et le hacker exige 1 000 £ avant de le libérer. Que faites-vous ?",
+            "image": "./img/ransomware.jpeg",
+            "left": "Envoyez un email à l'informaticien du bureau.",
+            "right": "Essayez de vous débarrasser de cela avant que quelqu'un ne le découvre",
+            "up": "Payer la rançon. Vous avez besoin de vos fichiers !",
+            "down": "Déconnectez votre ordinateur du réseau.",
+            "good_answer": "down",
+            "details": ""
+        },
+        {
+            "title": "Votre ordinateur est maintenant débarrassé du ransomware et vous êtes prêt à recommencer à travailler. Que faites-vous en premier ?",
+            "image": "./img/ransomware.jpeg",
+            "left": "Sauvegardez les données dès que possible.",
+            "right": "Continuez à travailler normalement.",
+            "up": "Réinstallez la clé USB, car vous ne savez toujours pas à qui elle appartient.",
+            "down": "Rien, cela a été traité.",
+            "good_answer": "left",
+            "details": ""
+        },
+        {
+            "title": "Sur le chemin du retour, vous avez remarqué que vous aviez laissé votre téléphone portable dans le train ? Que faites-vous ?",
+            "image": "./img/telephone.jpeg",
+            "left": "Appelez la ligne de train pour savoir si quelqu'un l'a remis.",
+            "right": "Appelez votre téléphone pour organiser une rencontre avec la personne qui l'a trouvé.",
+            "up": "Désactivez-le à distance dès que possible.",
+            "down": "Appelez le réseau téléphonique pour les informer.",
+            "good_answer": "right",
+            "details": "Désactiver votre téléphone portable à distance est une application utile à avoir. Vous pouvez protéger les données, suivre votre téléphone et supprimer les données si nécessaire."
+        },
+        {
+            "title": "Vous décidez de vous détendre et d'acheter des billets de concert en ligne. Le site Web ne semble pas fonctionner car vous ne pouvez pas y accéder. C'est généralement le résultat d'une -",
+            "image": "./img/ticket.jpeg",
+            "left": "Attaque de malware.",
+            "right": "Attaque DDoS.",
+            "up": "Attaque de spear-phishing.",
+            "down": "Attaque de ransomware.",
+            "good_answer": "down",
+            "details": ""
+        }
+        
+    ],
+    "Questions_Child": [
+        {
+            "title": "En insérant une clé USB abandonnée, je risque",
+            "image": "./img/usb1.jpeg",
+            "left": "Rien",
+            "right": "De voir mes mots de passe volés instantanément",
+            "up": "D'être sanctionné",
+            "down": "De voir mes composants PC dysfonctionner",
+            "good_answer": "right",
+            "details": "Insérer une clé USB inconnue est toujours un peu risqué car certaines d'entre elles pourraient être des tueuses USB qui surchargeront votre PC en électricité. Si votre système d'exploitation (comme Windows) est à jour, vous ne verrez normalement pas vos mots de passe volés jusqu'à ce que vous n'ouvriez rien trouvé sur la clé USB."
+        },
+        {
+            "title": "Qu'est-ce qui est le maillon faible de la cybersécurité ?",
+            "image": "./img/cybersecurity1.jpeg",
+            "left": "Chiffrement faible",
+            "right": "Les humains",
+            "up": "Mots de passe courts",
+            "down": "Systèmes informatiques",
+            "good_answer": "right",
+            "details": ""
+        },
+        {
+            "title": "Quelle est la meilleure façon de sécuriser un mot de passe faible comme « monkey123 » ?",
+            "image": "./img/password1.png",
+            "left": "Ajouter une majuscule et un caractère spécial, comme $",
+            "right": "Ne pas le réutiliser ailleurs ou le partager avec quelqu'un",
+            "up": "Le répéter deux fois",
+            "down": "Activer l'authentification à deux facteurs",
+            "good_answer": "down",
+            "details": ""
+        },
+        {
+            "title": "La meilleure façon de minimiser votre empreinte numérique est de",
+            "image": "./img/privacy1.jpeg",
+            "left": "Publier moins sur les réseaux sociaux",
+            "right": "Prendre moins de photos avec votre smartphone",
+            "up": "Voyager moins avec votre smartphone",
+            "down": "Réinitialiser votre téléphone",
+            "good_answer": "left",
+            "details": ""
+        },
+        {
+            "title": "Quand est-il acceptable de réutiliser un mot de passe ?",
+            "image": "./img/password1.png",
+            "left": "Lorsque vous vous connectez à des comptes de réseaux sociaux",
+            "right": "Lorsqu'il est trop difficile de se souvenir d'un mot de passe long",
+            "up": "Toujours si et seulement s'il s'agit d'un mot de passe fort",
+            "down": "Jamais",
+            "good_answer": "down",
+            "details": "Vous ne devriez jamais utiliser un mot de passe plusieurs fois"
+        },
+        {
+            "title": "Quel service de covoiturage collecte le moins de vos données ?",
+            "image": "./img/privacy2.png",
+            "left": "Uber",
+            "right": "Bolt",
+            "up": "Service de taxi public",
+            "down": "Blablacar",
+            "good_answer": "up",
+            "details": ""
+        },
+        {
+            "title": "Laquelle des options suivantes est la plus efficace pour maintenir votre vie privée numérique ?",
+            "image": "./img/privacy1.jpeg",
+            "left": "Ne pas partager d'informations personnelles sur les réseaux sociaux",
+            "right": "Couvrir la caméra frontale de votre ordinateur",
+            "up": "Se désabonner de tous les emails de spam",
+            "down": "Ne jamais ouvrir votre boîte email",
+            "good_answer": "left",
+            "details": ""
+        },
+        {
+            "title": "Laquelle des options suivantes est une façon intelligente de tester un lien suspect ?",
+            "image": "./img/phishing2.jpeg",
+            "left": "Utiliser un outil en ligne gratuit pour étendre un lien raccourci et afficher l'URL de destination réelle",
+            "right": "Utiliser un outil de scan de liens",
+            "up": "Les deux réponses : 1 et 2",
+            "down": "Cliquez dessus",
+            "good_answer": "up",
+            "details": "Il existe des moyens sûrs de tester un lien sans cliquer dessus. L'une des façons consiste à connaître les signaux d'alarme d'un lien malveillant, afin que vous puissiez repérer les tentatives évidentes. Mais vous pouvez également survoler le lien, utiliser un outil d'extension de lien ou un outil de scan de liens."
+        },
+        {
+            "title": "Laquelle des URL de site Web suivantes est légitime ?",
+            "image": "./img/site1.png",
+            "left": "https://www.payapl.com/us/webapps/mpp/requesting-payments",
+            "right": "http://www.paypay.com.home/",
+            "up": "https://www.pay.pal.com/",
+            "down": "https://www.paypal.com/us/home",
+            "good_answer": "down",
+            "details": "Certaines différences notables dans les URL incorrectes sont : PayPal utilisera toujours « https » car ils collectent des informations personnelles et une sécurité supplémentaire est requise ; tout ce qui se trouve avant le slash est où vous serez emmené, donc les caractères supplémentaires avant le / sont suspects ; les fautes d'orthographe légères ou les caractères supplémentaires (comme « payapl » et « pay.pal ») sont également des signaux d'alarme qui vous indiquent que vous êtes dirigé vers un site malveillant. Ils peuvent être difficiles à repérer, assurez-vous donc de vérifier soigneusement les URL."
+        },
+        {
+            "title": "L'utilisation de l'authentification à deux facteurs n'est pas un outil efficace pour sécuriser vos comptes",
+            "image": "./img/2fa1.jpeg",
+            "left": "Vrai",
+            "right": "Faux",
+            "up": "Pas de réponse",
+            "down": "Pas de réponse",
+            "good_answer": "right",
+            "details": "L'authentification à deux facteurs est un moyen facile et très efficace de sécuriser vos comptes contre les accès non autorisés. Avec l'authentification à deux facteurs en place, vous pouvez empêcher un hacker d'accéder à votre compte même s'il a craqué ou volé votre mot de passe. Cela fonctionne en exigeant une deuxième pièce d'information à saisir - généralement un code PIN ou un code - lorsque une tentative de connexion est effectuée à partir d'un appareil non reconnu."
+        },
+        {
+            "title": "J'ai une protection antivirus, donc en ce qui concerne la sécurité du réseau, je suis prêt",
+            "image": "./img/antivirus1.jpeg",
+            "left": "Vrai",
+            "right": "Faux",
+            "up": "Pas de réponse",
+            "down": "Pas de réponse",
+            "good_answer": "right",
+            "details": "Le logiciel antivirus seul n'est plus suffisant. La sécurité du réseau aujourd'hui nécessite une approche à plusieurs couches qui comprend des pare-feu, la gestion des correctifs, la protection des points de terminaison, les contrôles administratifs, la formation des utilisateurs finals et la gestion des sauvegardes de données."
+        },
+        {
+            "title": "Sur votre téléphone portable, quelle source devriez-vous utiliser pour installer une application ?",
+            "image": "./img/mobile1.jpg",
+            "left": "Le premier résultat de votre recherche est le meilleur",
+            "right": "Demandez à un ami de l'installer",
+            "up": "Toutes les sources sont les mêmes",
+            "down": "Utilisez le magasin d'applications officiel",
+            "good_answer": "down",
+            "details": "Lorsqu'il s'agit d'applications mobiles, il est crucial d'être vigilant. Utilisez toujours le magasin d'applications fiable proposé par le fabricant de l'appareil, et ne téléchargez jamais d'applications à partir de sources non fiables ou douteuses. Parfois, les applications téléchargées directement à partir des magasins officiels peuvent contenir du code malveillant, il est donc recommandé d'utiliser des solutions antivirus supplémentaires."
+        },
+        {
+            "title": "Si un email affiche le nom de votre banque dans le champ de l'expéditeur, il est fiable. Vrai ou faux ?",
+            "image": "./img/bank.jpeg",
+            "left": "Vrai.",
+            "right": "Faux.",
+            "good_answer": "right",
+            "details": "Les escrocs peuvent reproduire parfaitement l'apparence graphique des emails de votre banque, et même une copie de son site Web."
+        },
+        {
+            "title": "En mode Bluetooth, je mets mes données en danger. Vrai ou faux ?",
+            "image": "./img/bluetooth.jpeg",
+            "left": "Vrai.",
+            "right": "Faux.",
+            "good_answer": "left",
+            "details": "Le réseau Bluetooth est souvent responsable des failles de sécurité qui mettent vos données en danger. Il est préférable de le désactiver lorsque vous ne l'utilisez pas."
+        },
+        {
+            "title": "Télécharger une pièce jointe d'email peut permettre à quelqu'un de prendre le contrôle de votre ordinateur. Vrai ou faux ?",
+            "image": "./img/email.jpeg",
+            "left": "Vrai.",
+            "right": "Faux.",
+            "good_answer": "left",
+ "details": "En téléchargeant la pièce jointe, vous pouvez commencer à installer un malware qui donnera aux hackers l'accès à votre ordinateur."
+        },
+        {
+            "title": "Un virus peut être installé sur votre ordinateur via un réseau public ou gratuit. Vrai ou faux ?",
+            "image": "./img/virus.jpeg",
+            "left": "Vrai.",
+            "right": "Faux.",
+            "good_answer": "left",
+            "details": "C'est pourquoi il est préférable d'éviter de se connecter à des réseaux non sécurisés."
+        },
+        {
+            "title": "Lorsque vous voyagez, vous êtes plus susceptible d'être victime d'un piratage. Vrai ou faux ?",
+            "image": "./img/travel.jpeg",
+            "left": "Vrai.",
+            "right": "Faux.",
+            "good_answer": "left",
+            "details": "Lorsque vous voyagez, vos habitudes sont perturbées. Vous vous connectez plus facilement à des réseaux non sécurisés, ou vous laissez votre ordinateur sans surveillance dans votre chambre d'hôtel."
+        },
+        {
+            "title": "Dans la barre d'adresse de votre moteur de recherche, une URL commençant par 'https://' signifie que le site est sécurisé. Vrai ou faux ?",
+            "image": "./img/search.jpeg",
+            "left": "Vrai.",
+            "right": "Faux.",
+            "good_answer": "left",
+            "details": "Lorsqu'un site est sécurisé, l'URL commence par le mot 'https://'. L'absence d'un 's' signifie que le site n'est pas sécurisé."
+        },
+        {
+            "title": "Si un email affiche le nom de votre banque dans le champ de l'expéditeur, il est officiel. Vrai ou faux ?",
+            "image": "./img/bank.jpeg",
+            "left": "Vrai.",
+            "right": "Faux.",
+            "good_answer": "right",
+            "details": "Seulement en survolant ou en cliquant sur le nom de l'expéditeur pourrez-vous afficher l'adresse email et vérifier si elle est officielle."
+        }
+    ]
+}
