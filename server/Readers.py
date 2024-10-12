@@ -1,43 +1,56 @@
-import json
-from pathlib import Path
 from dataclasses import dataclass, asdict
-from typing import Any
+from typing import Any, List
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+import os
 
-class Reader():
-    def __init__(self, path, model) -> None:
-        self.path = Path(path)
+app = Flask(__name__)
+
+# Database configuration
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://postgres:password@localhost:5432/mydb')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+# Database model for questions
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    image = db.Column(db.String(255), nullable=False)
+    answers = db.Column(db.JSON, nullable=False)
+    good_answer = db.Column(db.Integer, nullable=False)
+    difficulty = db.Column(db.Integer, nullable=False)
+    details = db.Column(db.String(255), nullable=False)
+
+# Database model for results
+class Result(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), nullable=False)
+    score = db.Column(db.Integer, nullable=False)
+
+# Create database tables
+with app.app_context():
+    db.create_all()
+
+class Reader:
+    def __init__(self, model) -> None:
         self.model = model
 
-        if self.path.is_file() == False:
-            raise Exception(f"Questions file not found : {path}")
-
-    def read(self) -> Any:
-        with self.path.open('r') as file:
-            return [self.model(**item) for item in json.load(file)]
+    def read(self) -> List[Any]:
+        return self.model.query.all()
 
     def write(self, data) -> None:
-        with self.path.open('w') as file:
-            return json.dump([asdict(item) for item in data], file)
-
-@dataclass
-class Question:
-    title: str
-    image: str
-    answers: list[str]
-    good_answer: int
-    difficulty: int
-    details: str
-
+        for item in data:
+            db.session.add(item)
+        db.session.commit()
 
 class QuestionsReader(Reader):
     def __init__(self) -> None:
-        super().__init__('questions.json', Question)
-
-@dataclass
-class Result:
-    username: str
-    score: int
+        super().__init__(Question)
 
 class ResultsReader(Reader):
     def __init__(self) -> None:
-        super().__init__('results.json', Result)
+        super().__init__(Result)
+
+if __name__ == '__main__':
+    app.run(debug=True)
