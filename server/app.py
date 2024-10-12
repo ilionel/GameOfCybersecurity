@@ -49,7 +49,7 @@ def get_top_score(username, difficulty):
     top_score = db.session.query(Score).filter_by(username=username, difficulty=difficulty).order_by(Score.score.desc()).first()
     if top_score:
         return {"score": top_score.score, "date": top_score.date.strftime('%Y-%m-%d %H:%M:%S')}
-    return {"score": 0, "date": str(datetime.now())}
+    return {"score": 0, "date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 @app.route("/getLeaderboard", methods=['GET'])
 def getLeaderboard():

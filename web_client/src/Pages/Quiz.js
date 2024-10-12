@@ -218,7 +218,7 @@ const Quiz = ({ questions, difficulty }) => {
           <br />
         </div>
         <br />
-        <div className='offset-md-3 col-size' style={{ width: '50%' }}>
+        <div className='offset-md-3 col-size' style={{ width: '50%', marginBottom: '100px' }}>
           <div className='d-flex offset-md-5'>
             <h2 className='text-center'>{t('how_to_play')}</h2>
             <img src={botSrc} style={{ width: '10%' }} alt='Logo' />
@@ -231,7 +231,7 @@ const Quiz = ({ questions, difficulty }) => {
           </p>
         </div>
       </div>
-      <div id='quiz' style={{ display: 'block', width: '1200px' }}>
+      <div id='quiz' style={{ display: 'none', width: '1200px' }}>
         <div className='d-flex offset-md-1'>
           <CountdownCircleTimer
             isPlaying={start}

@@ -53,7 +53,6 @@ const Score = ({ difficulty, title, quizType }) => {
     fetch(`${BACKEND_URL}/getLeaderboard?difficulty=${difficulty}`, requestOptions)
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         setScore(response);
       })
       .catch(error => {
