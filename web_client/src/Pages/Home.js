@@ -1,20 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Container, Col } from 'react-bootstrap';
 import { FaArrowRight } from 'react-icons/fa';
 import '../i18n';
 import { useTranslation } from 'react-i18next';
 import '../App.css';
 
+// Constants for styles
+const inputStyle = {
+  backgroundColor: '#292a3e',
+  borderColor: '#191a28',
+  color: 'white',
+  boxShadow: '0px 0px 20px 0px rgba(1,217,118, 0.8)',
+};
+
+const buttonStyle = {
+  marginLeft: '3%',
+  borderRadius: '50%',
+  backgroundColor: '#01d976',
+  borderColor: '#01d976',
+};
+
+const anonymousButtonStyle = {
+  backgroundColor: '#01d976',
+  borderColor: '#01d976',
+};
+
+// Constants for image paths
+const logoSrc = require('../Assets/logo.png');
+
 function Home() {
   const { t } = useTranslation();
+  const [username, setUsername] = useState('');
 
   const sendUsername = () => {
-    const inputUsername = document.getElementById('usernameInput');
-
-    if (inputUsername.value === '') {
+    if (username.trim() === '') {
       sendAnonymously();
-    } else if (inputUsername.value !== '') {
-      sessionStorage.setItem('username', inputUsername.value);
+    } else {
+      sessionStorage.setItem('username', username);
       window.location.href = '/choose-quiz';
     }
   };
@@ -40,7 +62,7 @@ function Home() {
           <br />
           <div className='justify-content-center d-flex'>
             <img
-              src={require('../Assets/logo.png')}
+              src={logoSrc}
               style={{ width: '20%' }}
               alt='Logo'
             />
@@ -57,27 +79,19 @@ function Home() {
                 <br />
                 <div className='col-md-6 d-flex'>
                   <Form.Control
-                    style={{
-                      backgroundColor: '#292a3e',
-                      borderColor: '#191a28',
-                      color: 'white',
-                      boxShadow: '0px 0px 20px 0px rgba(1,217,118, 0.8)',
-                    }}
-                    type='username'
+                    style={inputStyle}
+                    type='text'
                     id='usernameInput'
                     className='col-md-1 offset-md-6 input-user'
                     placeholder={t('username')}
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
                     onKeyDown={handleKeyDown}
                   />
                   <Button
                     className='button-user'
                     type='button'
-                    style={{
-                      marginLeft: '3%',
-                      borderRadius: '50%',
-                      backgroundColor: '#01d976',
-                      borderColor: '#01d976',
-                    }}
+                    style={buttonStyle}
                     onClick={sendUsername}
                   >
                     <FaArrowRight />
@@ -90,7 +104,7 @@ function Home() {
                 <br />
                 <br />
                 <Button
-                  style={{ backgroundColor: '#01d976', borderColor: '#01d976' }}
+                  style={anonymousButtonStyle}
                   className='rounded-pill col-md-4 button-user'
                   onClick={sendAnonymously}
                 >
@@ -108,4 +122,3 @@ function Home() {
 }
 
 export default Home;
-

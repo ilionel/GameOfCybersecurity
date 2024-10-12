@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Button,
   Container,
@@ -11,10 +12,36 @@ import '../translations.json';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
+// Constants for styles
+const buttonStyle = {
+  marginLeft: '-80%',
+  borderRadius: '50%',
+  backgroundColor: '#01d976',
+  borderColor: '#01d976',
+};
+
+const beginnerButtonStyle = {
+  fontWeight: 'bold',
+  fontSize: '17px',
+  marginRight: '2%',
+  backgroundColor: '#01d976',
+  borderColor: '#01d976',
+};
+
+const advancedButtonStyle = {
+  marginRight: '1%',
+  fontWeight: 'bold',
+  fontSize: '17px',
+};
+
+// Constants for image paths
+const logoSrc = require('../Assets/logo.png');
+
 function ChooseQuiz() {
   const { t } = useTranslation();
   const username = sessionStorage.getItem('username');
 
+  // Tooltip components
   const renderTooltipBeginner = props => (
     <Tooltip id='button-tooltip' {...props}>
       {t('beginner_tooltip')}
@@ -37,7 +64,7 @@ function ChooseQuiz() {
           <br />
           <div className='justify-content-center d-flex'>
             <img
-              src={require('../Assets/logo.png')}
+              src={logoSrc}
               style={{ width: '20%' }}
               alt='Logo'
             />
@@ -51,12 +78,7 @@ function ChooseQuiz() {
               <Button
                 href='/home'
                 className='button-user'
-                style={{
-                  marginLeft: '-80%',
-                  borderRadius: '50%',
-                  backgroundColor: '#01d976',
-                  borderColor: '#01d976',
-                }}
+                style={buttonStyle}
               >
                 <FaArrowLeft />
               </Button>
@@ -74,13 +96,7 @@ function ChooseQuiz() {
                   <Button
                     href='/quiz-minor'
                     className='col-md-5 rounded-pill button-user'
-                    style={{
-                      fontWeight: 'bold',
-                      fontSize: '17px',
-                      marginRight: '2%',
-                      backgroundColor: '#01d976',
-                      borderColor: '#01d976',
-                    }}
+                    style={beginnerButtonStyle}
                   >
                     {t('beginner_quiz')}
                   </Button>
@@ -93,11 +109,7 @@ function ChooseQuiz() {
                   <Button
                     href='/quiz-major'
                     className='col-md-5 rounded-pill button-major'
-                    style={{
-                      marginRight: '1%',
-                      fontWeight: 'bold',
-                      fontSize: '17px',
-                    }}
+                    style={advancedButtonStyle}
                     variant='danger'
                   >
                     {t('advanced_quiz')}
@@ -113,4 +125,3 @@ function ChooseQuiz() {
 }
 
 export default ChooseQuiz;
-

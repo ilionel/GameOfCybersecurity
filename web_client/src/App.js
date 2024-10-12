@@ -7,24 +7,33 @@ import QuizMinor from './Pages/QuizMinor';
 import ScoreMinor from './Pages/ScoreMinor';
 import ScoreMajor from './Pages/ScoreMajor';
 
+// Constants for route paths
+const PATHS = {
+  HOME: '/',
+  CHOOSE_QUIZ: '/choose-quiz',
+  QUIZ_MAJOR: '/quiz-major',
+  QUIZ_MINOR: '/quiz-minor',
+  SCORE_MINOR: '/score-minor',
+  SCORE_MAJOR: '/score-major',
+};
+
 function App() {
-    document.title = 'Cybersecurity challenge!';
+  // Set the document title
+  document.title = 'Cybersecurity challenge!';
+
   return (
     <Router>
-      <div>
-        <Routes>
-          <Route exact path='/' element={<Home />}></Route>
-          <Route path='/home' element={<Home />}></Route>
-          <Route path='/choose-quiz' element={<ChooseQuiz />}></Route>
-          <Route path='/quiz-major' element={<QuizMajor />}></Route>
-          <Route path='/quiz-minor' element={<QuizMinor />}></Route>
-          <Route path='/score-minor' element={<ScoreMinor />}></Route>
-          <Route path='/score-major' element={<ScoreMajor />}></Route>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path={PATHS.HOME} element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path={PATHS.CHOOSE_QUIZ} element={<ChooseQuiz />} />
+        <Route path={PATHS.QUIZ_MAJOR} element={<QuizMajor />} />
+        <Route path={PATHS.QUIZ_MINOR} element={<QuizMinor />} />
+        <Route path={PATHS.SCORE_MINOR} element={<ScoreMinor />} />
+        <Route path={PATHS.SCORE_MAJOR} element={<ScoreMajor />} />
+      </Routes>
     </Router>
   );
 }
 
 export default App;
-

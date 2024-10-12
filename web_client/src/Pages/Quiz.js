@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { Button, Table, Spinner } from 'react-bootstrap';
@@ -8,24 +8,79 @@ import { useTranslation } from 'react-i18next';
 import '../App.css';
 import { BACKEND_URL, TIMER, WIN_TIME, WIN_SCORE } from '../config.js';
 
+// Constants for styles
+const buttonStyle = {
+  marginLeft: '3%',
+  borderRadius: '50%',
+  backgroundColor: '#01d976',
+  borderColor: '#01d976',
+};
+
+const inputStyle = {
+  backgroundColor: '#292a3e',
+  borderColor: '#191a28',
+  color: 'white',
+  boxShadow: '0px 0px 20px 0px rgba(1,217,118, 0.8)',
+};
+
+const cardStyle = {
+  border: '2px solid',
+  backgroundColor: '#292a3e',
+  color: 'white',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  padding: '15px',
+  width: '300px',
+  margin: '0 auto',
+};
+
+const questionStyle = {
+  border: '2px solid #01d976',
+  color: 'white'
+};
+
+const thStyle = {
+  border: '2px solid #01d976'
+};
+
+const iconStyle = {
+  marginTop: '2%',
+  display: 'none'
+};
+
+const spinStyle = {
+  display: 'none',
+  marginTop: '10%'
+};
+
+const spinnerStyle = {
+  height: '150px',
+  width: '150px',
+  color: '#01d976'
+};
+
+const resultStyle = {
+  backgroundColor: '#01d976',
+  borderColor: '#01d976',
+  fontWeight: 'bold',
+};
+
+// Constants for image paths
+const logoSrc = require('../Assets/logo.png');
+const botSrc = require('../Assets/Bot.png');
+
 const Quiz = ({ questions, difficulty }) => {
   const { t } = useTranslation();
   const username = sessionStorage.getItem('username');
   const [currentIndex, setCurrentIndex] = useState(questions.length - 1);
-  const [lastDirection, setLastDirection] = useState();
-  const currentIndexRef = useRef(currentIndex);
   const [start, setStart] = useState(false);
   const [winTime, setWinTime] = useState(TIMER);
   const [score, setScore] = useState(0);
   const [saveAnswer, setSaveAnswer] = useState([]);
-  const canSwipe = currentIndex >= 0;
 
   const childRefs = useMemo(
-    () =>
-      Array(questions.length)
-        .fill(0)
-        .map(i => React.createRef()),
-    []
+    () => Array(questions.length).fill(0).map(() => React.createRef()),
+    [questions.length]
   );
 
   const handleStart = () => {
@@ -41,11 +96,11 @@ const Quiz = ({ questions, difficulty }) => {
     handleStart();
   };
 
-  const updateCurrentIndex = val => {
+  const updateCurrentIndex = (val) => {
     setCurrentIndex(val);
   };
 
-  const sendScore = () => {
+  const sendScore = async () => {
     const userScore = sessionStorage.getItem('score');
     const myHeaders = new Headers();
     myHeaders.append('Access-Control-Allow-Origin', '*');
@@ -63,15 +118,13 @@ const Quiz = ({ questions, difficulty }) => {
       body: raw,
     };
 
-    console.log(raw);
-    fetch(`${BACKEND_URL}/addScore`, requestOptions)
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    try {
+      const response = await fetch(`${BACKEND_URL}/addScore`, requestOptions);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const swiped = async (direction, nameToDelete, index) => {
@@ -123,13 +176,13 @@ const Quiz = ({ questions, difficulty }) => {
     }
   };
 
-  const swipe = async dir => {
+  const swipe = async (dir) => {
     if (currentIndex >= 0 && currentIndex < questions.length) {
       await childRefs[currentIndex].current.swipe(dir); // Swipe the card!
     }
   };
 
-  const wait = timeout => {
+  const wait = (timeout) => {
     return new Promise(resolve => {
       setTimeout(resolve, timeout);
     });
@@ -142,11 +195,7 @@ const Quiz = ({ questions, difficulty }) => {
   return (
     <div>
       <div className=''>
-        <img
-          src={require('../Assets/logo.png')}
-          style={{ width: '20%' }}
-          alt='Logo'
-        />
+        <img src={logoSrc} style={{ width: '20%' }} alt='Logo' />
       </div>
       <div id='ready'>
         <div className='' style={{ marginTop: '5%' }}>
@@ -160,7 +209,7 @@ const Quiz = ({ questions, difficulty }) => {
           <br />
           <Button
             onClick={showQuizz}
-            style={{ backgroundColor: '#01d976', borderColor: '#01d976' }}
+            style={buttonStyle}
             className='button-user rounded-pill col-md-2'
           >
             {t('start')}
@@ -172,11 +221,7 @@ const Quiz = ({ questions, difficulty }) => {
         <div className='offset-md-3 col-size' style={{ width: '50%' }}>
           <div className='d-flex offset-md-5'>
             <h2 className='text-center'>{t('how_to_play')}</h2>
-            <img
-              src={require('../Assets/Bot.png')}
-              style={{ width: '10%' }}
-              alt='Logo'
-            />
+            <img src={botSrc} style={{ width: '10%' }} alt='Logo' />
           </div>
           <p
             className='text-center'
@@ -186,7 +231,7 @@ const Quiz = ({ questions, difficulty }) => {
           </p>
         </div>
       </div>
-      <div id='quiz' style={{ display: 'none' }}>
+      <div id='quiz' style={{ display: 'block', width: '1200px' }}>
         <div className='d-flex offset-md-1'>
           <CountdownCircleTimer
             isPlaying={start}
@@ -197,8 +242,6 @@ const Quiz = ({ questions, difficulty }) => {
             size={100}
           >
             {({ remainingTime }) => {
-              if (!start) {
-              }
               sessionStorage.setItem('time', remainingTime);
               return <h1>{remainingTime}</h1>;
             }}
@@ -206,7 +249,7 @@ const Quiz = ({ questions, difficulty }) => {
           <div
             className='col-md-1 offset-md-4'
             id='winIcon'
-            style={{ display: 'none', marginTop: '2%' }}
+            style={iconStyle}
           >
             <FaRegCheckCircle color='#01d976' size={40} />
           </div>
@@ -214,7 +257,7 @@ const Quiz = ({ questions, difficulty }) => {
           <div
             className='col-md-1 offset-md-4'
             id='looseIcon'
-            style={{ marginTop: '2%', display: 'none' }}
+            style={iconStyle}
           >
             <FaRegTimesCircle color='red' size={40} />
           </div>
@@ -236,35 +279,13 @@ const Quiz = ({ questions, difficulty }) => {
               }}
             >
               <div style={{ margin: '20px 0' }} onClick={() => swipe('up')}>
-                <p
-                  style={{
-                    border: '2px solid fuchsia',
-                    backgroundColor: '#292a3e',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    fontSize: '16px',
-                    padding: '15px 15px 15px 15px',
-                    width: '300px',
-                    margin: '0 auto',
-                  }}
-                >
+                <p style={{ ...cardStyle, border: '2px solid fuchsia' }}>
                   3 : {character.up}
                 </p>
               </div>
               <div className='cardMiddleRow'>
                 <div style={{ margin: '0 20px' }} onClick={() => swipe('left')}>
-                  <p
-                    style={{
-                      border: '2px solid gold',
-                      backgroundColor: '#292a3e',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      fontSize: '16px',
-                      padding: '15px 15px 15px 15px',
-                      width: '300px',
-                      margin: '0 auto',
-                    }}
-                  >
+                  <p style={{ ...cardStyle, border: '2px solid gold' }}>
                     1 : {character.left}
                   </p>
                 </div>
@@ -287,35 +308,13 @@ const Quiz = ({ questions, difficulty }) => {
                   style={{ margin: '0 20px' }}
                   onClick={() => swipe('right')}
                 >
-                  <p
-                    style={{
-                      border: '2px solid aqua',
-                      backgroundColor: '#292a3e',
-                      color: 'white',
-                      fontWeight: 'bold',
-                      fontSize: '16px',
-                      padding: '15px 15px 15px 15px',
-                      width: '300px',
-                      margin: '0 auto',
-                    }}
-                  >
+                  <p style={{ ...cardStyle, border: '2px solid aqua' }}>
                     2 : {character.right}
                   </p>
                 </div>
               </div>
               <div style={{ margin: '20px 0' }} onClick={() => swipe('down')}>
-                <p
-                  style={{
-                    border: '2px solid lightsalmon',
-                    backgroundColor: '#292a3e',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    fontSize: '16px',
-                    padding: '15px 15px 15px 15px',
-                    width: '300px',
-                    margin: '0 auto',
-                  }}
-                >
+                <p style={{ ...cardStyle, border: '2px solid lightsalmon' }}>
                   4 : {character.down}
                 </p>
               </div>
@@ -355,12 +354,12 @@ const Quiz = ({ questions, difficulty }) => {
           </button>
         </div>
       </div>
-      <div id='spin' style={{ display: 'none', marginTop: '10%' }}>
+      <div id='spin' style={spinStyle}>
         <Spinner
           animation='border'
           variant='#01d976'
           size='500'
-          style={{ height: '150px', width: '150px', color: '#01d976' }}
+          style={spinnerStyle}
         />
         <br />
         <br />
@@ -368,14 +367,10 @@ const Quiz = ({ questions, difficulty }) => {
           {t('loading_results')}
         </h5>
       </div>
-      <div id='details' style={{ marginTop: '2%', display: 'none' }}>
+      <div id='details' style={iconStyle}>
         <Button
           href={difficulty === 0 ? '/score-minor' : '/score-major'}
-          style={{
-            backgroundColor: '#01d976',
-            borderColor: '#01d976',
-            fontWeight: 'bold',
-          }}
+          style={resultStyle}
           className='rounded-pill col-md-2 button-user'
         >
           {t('view_leaderboard')}
@@ -389,44 +384,40 @@ const Quiz = ({ questions, difficulty }) => {
             striped
             bordered
             hover
-            style={{
-              border: '2px solid #01d976',
-              color: 'white',
-              boxShadow: '0px 0px 20px 0px rgba(1,217,118, 0.8)',
-            }}
+            style={inputStyle}
           >
-            <thead style={{ border: '2px solid #01d976' }}>
-              <tr style={{ border: '2px solid #01d976' }}>
-                <th style={{ border: '2px solid #01d976' }} width='20%'>
+            <thead style={thStyle}>
+              <tr style={thStyle}>
+                <th style={thStyle} width='20%'>
                   {t('question')}
                 </th>
-                <th style={{ border: '2px solid #01d976' }} width='10%'>
+                <th style={thStyle} width='10%'>
                   {t('good_answer')}
                 </th>
-                <th style={{ border: '2px solid #01d976' }} width='20%'>
+                <th style={thStyle} width='20%'>
                   {t('details')}
                 </th>
-                <th style={{ border: '2px solid #01d976' }} width='4%'>
+                <th style={thStyle} width='4%'>
                   {t('your_answer')}
                 </th>
               </tr>
             </thead>
-            <tbody style={{ border: '2px solid #01d976' }}>
+            <tbody style={thStyle}>
               {questions.map((question, index) => (
                 <tr
                   key={question.title}
-                  style={{ border: '2px solid #01d976', color: 'white' }}
+                  style={questionStyle}
                 >
-                  <td style={{ border: '2px solid #01d976', color: 'white' }}>
+                  <td style={questionStyle}>
                     {question.title}
                   </td>
-                  <td style={{ border: '2px solid #01d976', color: 'white' }}>
+                  <td style={questionStyle}>
                     {question[question.good_answer]}
                   </td>
-                  <td style={{ border: '2px solid #01d976', color: 'white' }}>
+                  <td style={questionStyle}>
                     {question.details}
                   </td>
-                  <td style={{ border: '2px solid #01d976', color: 'white' }}>
+                  <td style={questionStyle}>
                     {saveAnswer[index]}
                   </td>
                 </tr>
@@ -440,4 +431,3 @@ const Quiz = ({ questions, difficulty }) => {
 };
 
 export default Quiz;
-
