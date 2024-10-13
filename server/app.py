@@ -48,8 +48,9 @@ def add_score():
 def get_top_score(username, difficulty):
     top_score = db.session.query(Score).filter_by(username=username, difficulty=difficulty).order_by(Score.score.desc()).first()
     if top_score:
-        return {"score": top_score.score, "date": top_score.date.strftime('%Y-%m-%d %H:%M:%S')}
-    return {"score": 0, "date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+        return {"username": username, "score": top_score.score, "date": top_score.date.strftime('%Y-%m-%d %H:%M:%S')}
+    return {}
+    #return {"score": 0, "date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 @app.route("/getLeaderboard", methods=['GET'])
 def getLeaderboard():
@@ -61,8 +62,11 @@ def getLeaderboard():
         return "Difficulty should be numeric", 400
 
     users = db.session.query(Score.username).distinct().all()
-    top_scores = [{"username": username[0], **get_top_score(username[0], difficulty)} for username in users]
-
+    top_scores = []
+    for username in users:
+        score = get_top_score(username[0], difficulty)
+        if score:
+            top_scores.append({**score})
     return jsonify(top_scores), 200
 
 if __name__ == '__main__':
