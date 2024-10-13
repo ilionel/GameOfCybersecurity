@@ -69,7 +69,7 @@ const Score = ({ difficulty, title, quizType }) => {
           alt='Logo'
         />
       </div>
-      <div style={{ marginTop: '5%' }}>
+      <div style={{ marginTop: '5%', width: '70%'}}>
         <h1>{title}</h1>
         <br />
         <div style={{ padding: '5px 45px 15px 45px' }}>
