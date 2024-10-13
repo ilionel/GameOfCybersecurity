@@ -10,7 +10,6 @@ import { BACKEND_URL, TIMER, WIN_TIME, WIN_SCORE } from '../config.js';
 
 // Constants for styles
 const buttonStyle = {
-  marginLeft: '3%',
   borderRadius: '50%',
   backgroundColor: '#01d976',
   borderColor: '#01d976',
@@ -218,20 +217,20 @@ const Quiz = ({ questions, difficulty }) => {
           <br />
         </div>
         <br />
-        <div className='offset-md-3 col-size' style={{ width: '50%', marginBottom: '100px' }}>
+        <div className='mx-auto col-size' style={{ width: '50%', marginBottom: '100px' }}>
           <div className='d-flex offset-md-5'>
             <h2 className='text-center'>{t('how_to_play')}</h2>
             <img src={botSrc} style={{ width: '10%' }} alt='Logo' />
           </div>
           <p
             className='text-center'
-            style={{ color: 'white', fontWeight: '', fontSize: '20px' }}
+            style={{ color: 'white', fontWeight: '', fontSize: '20px', marginLeft: '15px' }}
           >
             {t('how_to_play_description')}
           </p>
         </div>
       </div>
-      <div id='quiz' style={{ display: 'none', width: '1200px' }}>
+      <div id='quiz' style={{ display: 'none', width: '1350px' }}>
         <div className='d-flex offset-md-1'>
           <CountdownCircleTimer
             isPlaying={start}
