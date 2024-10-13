@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { Button, Table, Spinner } from 'react-bootstrap';
-import { FaRegTimesCircle, FaRegCheckCircle } from 'react-icons/fa';
+import { FaRegTimesCircle, FaRegCheckCircle, FaRegPlayCircle } from 'react-icons/fa';
 import '../i18n';
 import { useTranslation } from 'react-i18next';
 import '../App.css';
@@ -127,6 +127,7 @@ const Quiz = ({ questions, difficulty }) => {
   };
 
   const swiped = async (direction, nameToDelete, index) => {
+    const checkRun = document.getElementById('playIcon');
     const checkWin = document.getElementById('winIcon');
     const checkLoose = document.getElementById('looseIcon');
     const quizDiv = document.getElementById('quiz');
@@ -135,6 +136,7 @@ const Quiz = ({ questions, difficulty }) => {
     const timer = sessionStorage.getItem('time');
 
     updateCurrentIndex(index - 1);
+    checkRun.style.display = 'none';
     if (direction === questions[index].good_answer) {
       checkWin.style.display = 'block';
       checkLoose.style.display = 'none';
@@ -245,6 +247,13 @@ const Quiz = ({ questions, difficulty }) => {
               return <h1>{remainingTime}</h1>;
             }}
           </CountdownCircleTimer>
+          <div
+            className='col-md-1 offset-md-4'
+            id='playIcon'
+            style={{...iconStyle, display: 'block'}}
+          >
+            <FaRegPlayCircle color='#292a3e' size={40} />
+          </div>
           <div
             className='col-md-1 offset-md-4'
             id='winIcon'
