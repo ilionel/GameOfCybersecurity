@@ -20,6 +20,7 @@ class Score(db.Model):
     username = db.Column(db.String(80), nullable=False)
     difficulty = db.Column(db.Integer, nullable=False)
     score = db.Column(db.Integer, nullable=False)
+    answers = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 # Create database tables
@@ -31,6 +32,7 @@ def add_score():
     username = request.json.get('username', None)
     difficulty = request.json.get('difficulty', None)
     score = request.json.get('score', None)
+    answers = request.json.get('answers', None)
 
     if username is None:
         return "Missing username", 400
@@ -38,8 +40,10 @@ def add_score():
         return "Missing difficulty", 400
     if score is None:
         return "Missing score", 400
+    if answers is None:
+        return "Missing answers", 400
 
-    new_score = Score(username=username, difficulty=difficulty, score=score)
+    new_score = Score(username=username, difficulty=difficulty, score=score, answers=answers)
     db.session.add(new_score)
     db.session.commit()
 
@@ -50,7 +54,6 @@ def get_top_score(username, difficulty):
     if top_score:
         return {"username": username, "score": top_score.score, "date": top_score.date.strftime('%Y-%m-%d %H:%M:%S')}
     return {}
-    #return {"score": 0, "date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 @app.route("/getLeaderboard", methods=['GET'])
 def getLeaderboard():
@@ -68,6 +71,36 @@ def getLeaderboard():
         if score:
             top_scores.append({**score})
     return jsonify(top_scores), 200
+
+@app.route("/getStatistics", methods=['GET'])
+def getStatistics():
+    difficulty = request.args.get('difficulty', "1")
+
+    if difficulty.isnumeric():
+        difficulty = int(difficulty)
+    else:
+        return "Difficulty should be numeric", 400
+
+    all_answers = db.session.query(Score.answers).filter_by(difficulty=difficulty).all()
+    # Initialize statistics for each question
+    num_questions = len(all_answers[0][0].strip('{}').split(',')) if all_answers else 0
+    statistics = [[0, 0, 0] for _ in range(num_questions)]
+    for answers_tuple in all_answers:
+        answers_str = answers_tuple[0]
+        answers = answers_str.strip('{}').split(',')
+        for pos, answer in enumerate(answers):
+            if answer == '✅':
+                statistics[pos][0] += 1
+            elif answer == '❌':
+                statistics[pos][1] += 1
+            elif answer == '🕒':
+                statistics[pos][2] += 1
+                
+    # Display statistics for verification
+    #for i, stat in enumerate(statistics):
+    #    print(f"Question {i + 1}: ✅ = {stat[0]}, ❌ = {stat[1]}, 🕒 = {stat[2]}")
+    return jsonify(statistics), 200
+            
 
 if __name__ == '__main__':
     app.run(debug=True)

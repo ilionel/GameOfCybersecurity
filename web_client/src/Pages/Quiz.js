@@ -120,7 +120,7 @@ const Quiz = ({ questions, difficulty }) => {
     try {
       const response = await fetch(`${BACKEND_URL}/addScore`, requestOptions);
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
     } catch (error) {
       console.log(error);
     }
