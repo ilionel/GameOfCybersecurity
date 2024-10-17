@@ -169,8 +169,10 @@ You will also see any lint errors in the console.
      ├─ Pages/                   # Pages
      │    ├─ Home.js             # Page Home
      │    ├─ ChooseQuiz.js       # Page ChooseQuiz
+     │    ├─ Quiz.js             # Page Quiz (common)
      │    ├─ QuizMajor.js        # Page QuizMajor
      │    ├─ QuizMinor.js        # Page QuizMinor
+     │    ├─ Quiz.js             # Page Score (common)
      │    ├─ ScoreMajor.js       # Page ScoreMajor
      │    └─ ScoreMinor.js       # Page ScoreMinor
      |
