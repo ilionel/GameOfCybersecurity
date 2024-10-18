@@ -6,6 +6,8 @@ import QuizMajor from './Pages/QuizMajor';
 import QuizMinor from './Pages/QuizMinor';
 import ScoreMinor from './Pages/ScoreMinor';
 import ScoreMajor from './Pages/ScoreMajor';
+import StatsMinor from './Pages/StatsMinor';
+import StatsMajor from './Pages/StatsMajor';
 
 // Constants for route paths
 const PATHS = {
@@ -15,6 +17,8 @@ const PATHS = {
   QUIZ_MINOR: '/quiz-minor',
   SCORE_MINOR: '/score-minor',
   SCORE_MAJOR: '/score-major',
+  STATS_MINOR: '/stats-minor',
+  STATS_MAJOR: '/stats-major',
 };
 
 function App() {
@@ -31,6 +35,8 @@ function App() {
         <Route path={PATHS.QUIZ_MINOR} element={<QuizMinor />} />
         <Route path={PATHS.SCORE_MINOR} element={<ScoreMinor />} />
         <Route path={PATHS.SCORE_MAJOR} element={<ScoreMajor />} />
+        <Route path={PATHS.STATS_MINOR} element={<StatsMinor />} />
+        <Route path={PATHS.STATS_MAJOR} element={<StatsMajor />} />
       </Routes>
     </Router>
   );

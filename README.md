@@ -40,6 +40,10 @@ i18n translation files have been added to make the project multilingual. Hardcod
 
 The backend has been slightly improved to store user responses, enabling statistics and providing a better understanding of user behavior.
 
+### Statistics Page
+
+The statistics pages /stats-major/ and /stats-minor/ provide statistics on player results. This is very useful for understanding which errors are most frequently made, allowing for targeted awareness messages to address the shortcomings.
+
 ## Benefits
 
 The refactoring and improvement of the Game of Cybersecurity project have numerous benefits, including:
@@ -63,7 +67,7 @@ The refactoring and improvement of the Game of Cybersecurity project have signif
 
 ## Video
 <p align="center">
-  <img src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/GOC.gif" />
+  <img src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/GOC.gif" />
 </p>
 
 >Within a time limit, you will have to answer a series of questions on the theme of cybersecurity. Each correct answer gives you extra time. To answer the questions, you must drag and drop the card on one of the sides. At the end of the timer, your score is computed.
@@ -75,7 +79,7 @@ Have fun !
 # Home
 **You can play with a username or by being anonymous.**
 <p align="center">
-  <img width="800px" src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/Username.png" />
+  <img width="800px" src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/Username.png" />
 </p>
 
 # Quiz
@@ -86,7 +90,7 @@ Have fun !
 **Advanced : You use the Internet at work, for your administrative procedures, you are subscribed to third party services.**
 
 <p align="center">
-  <img width="800px" src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/ChooseQuiz.png" />
+  <img width="800px" src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/ChooseQuiz.png" />
 </p>
 
 # Game
@@ -94,25 +98,25 @@ Have fun !
 
 ### Buttons
 <p align="center">
-  <img width="800px" src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/Game.png" />
+  <img width="800px" src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/Game.png" />
 </p>
 
 ### Swipe
 <p align="center">
-  <img width="800px" src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/Swipe.png" />
+  <img width="800px" src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/Swipe.png" />
 </p>
 
 # Details Board
 **In this table, you can find the questions with the correct detailed answers with your answers.**
 <p align="center">
-  <img width="800px" src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/Details.png" />
+  <img width="800px" src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/Details.png" />
 </p>
 
 # LeaderBoard
 **At the end of your game you can see your place in the ranking with your score among the different players depending on the difficulty.**
 
 <p align="center">
-  <img width="800px" src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/LeaderBoard.png" />
+  <img width="800px" src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/LeaderBoard.png" />
 </p>
 
 # Technical Part
@@ -174,7 +178,10 @@ You will also see any lint errors in the console.
      │    ├─ QuizMinor.js        # Page QuizMinor
      │    ├─ Quiz.js             # Page Score (common)
      │    ├─ ScoreMajor.js       # Page ScoreMajor
-     │    └─ ScoreMinor.js       # Page ScoreMinor
+     │    ├─ ScoreMinor.js       # Page ScoreMinor
+     │    ├─ Stats.js            # Page Statistics (common)
+     │    ├─ StatsMajor.js       # Page StatsMajor
+     │    └─ StatsMinor.js       # Page StatsMinor
      |
      ├─ App.js                   # Routes of App
      │
@@ -239,7 +246,7 @@ flask run
 
 # UML FrontEnd
 <p align="center">
-  <img width="800px" src="https://github.com/CamilleSA/GameOfCybersecurity/blob/main/assets/UMLGameCyber.png" />
+  <img width="800px" src="https://github.com/ilionel/GameOfCybersecurity/blob/main/assets/UMLGameCyber.png" />
 </p>
 
 # Norme Commit

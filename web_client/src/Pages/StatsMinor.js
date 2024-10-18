@@ -1,9 +1,9 @@
 import React from 'react';
-import Quiz from './Quiz';
+import Stats from './Stats';
 import '../i18n';
 import { useTranslation } from 'react-i18next';
 
-const QuizMajor = () => {
+const StatsMinor = () => {
   const { t } = useTranslation();
 
   // Fetch the questions for the child quiz from the translation file
@@ -13,8 +13,8 @@ const QuizMajor = () => {
   const difficulty = 0;
 
   return (
-    <Quiz questions={questions} difficulty={difficulty} />
+    <Stats questions={questions} difficulty={difficulty} />
   );
 };
 
-export default QuizMajor;
+export default StatsMinor;
